@@ -1,8 +1,10 @@
 package validate
 
-import "fmt"
+import (
+	"errors"
+)
 
-var ErrBadRequest = fmt.Errorf("bad request")
+var ErrBadRequest = errors.New("bad request")
 
 func Validate(title string, text string) error {
 	if title == "" || len(title) > 100 || text == "" || len(text) > 500 {
